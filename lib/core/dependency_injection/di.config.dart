@@ -14,10 +14,12 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i3;
 
-import '../../data/datasource/remote/auth/auth_service.dart' as _i7;
+import '../../data/datasource/remote/gpt/gpt_service.dart' as _i7;
+import '../../data/repositories/gpt_repository_impl.dart' as _i9;
+import '../../domain/repositories/gpt_repository.dart' as _i8;
 import '../../domain/usecase/shared_preferences_usecase.dart' as _i4;
 import '../../presentation/app_setting/bloc/app_setting_bloc.dart' as _i5;
-import 'modules/service_modules.dart' as _i8;
+import 'modules/service_modules.dart' as _i10;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -45,9 +47,11 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i5.AppSettingBloc(gh<_i4.SharedPreferencesUseCase>()));
     gh.lazySingleton<_i6.Dio>(
         () => serviceModules.dio(gh<String>(instanceName: 'BaseUrl')));
-    gh.factory<_i7.AuthService>(() => _i7.AuthService(gh<_i6.Dio>()));
+    gh.factory<_i7.GPTService>(() => _i7.GPTService(gh<_i6.Dio>()));
+    gh.factory<_i8.GPTRepository>(
+        () => _i9.GPTRepositoryImpl(gh<_i7.GPTService>()));
     return this;
   }
 }
 
-class _$ServiceModules extends _i8.ServiceModules {}
+class _$ServiceModules extends _i10.ServiceModules {}

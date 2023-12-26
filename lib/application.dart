@@ -55,8 +55,8 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     return AdaptiveTheme(
       light: ThemeData.light(useMaterial3: true),
-      dark: ThemeData.dark(useMaterial3: true),
-      initial: widget.themeSaved ?? AdaptiveThemeMode.light,
+      dark: ThemeData.light(useMaterial3: true),
+      initial: AdaptiveThemeMode.light,
       builder: (ThemeData light, ThemeData dark) => MultiBlocProvider(
         providers: widget.providers,
         child: BlocBuilder<AppSettingBloc, AppSettingState>(
