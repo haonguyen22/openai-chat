@@ -46,6 +46,11 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                         value.keys.length,
                         (index) => ThreadMessageWidget(
                             title: value.keys.elementAt(index),
+                            onDelete: () {
+                              context.read<ConversationBloc>().add(
+                                  ConversationEvent.deleteMessage(
+                                      title: value.keys.elementAt(index)));
+                            },
                             onTap: () {
                               context.read<ConversationBloc>().add(
                                   ConversationEvent.getAllMessage(

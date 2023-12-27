@@ -20,7 +20,8 @@ class GPTUseCase {
     _sharedPreferencesUseCase.setApikey(apiKey);
   }
 
-  Future<void> saveMessage({required List<Message> message, required String title}) async {
+  Future<void> saveMessage(
+      {required List<Message> message, required String title}) async {
     await _gptRepository.saveMessage(message: message, title: title);
   }
 
@@ -36,6 +37,11 @@ class GPTUseCase {
 
   Future<List<Message>> getMessagesWithTitle({required String title}) async {
     final res = await _gptRepository.getAllMessagesWithTitle(title: title);
+    return res;
+  }
+
+  Future<List<String>> deleteMessage({required String title}) async {
+    final res = await _gptRepository.deleteMessage(title: title);
     return res;
   }
 }

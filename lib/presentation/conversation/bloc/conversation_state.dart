@@ -29,4 +29,12 @@ class ConversationState with _$ConversationState {
   const factory ConversationState.saveMessageFailed({
     required ConversationData data,
   }) = _SaveMessageFailed;
+
+  const factory ConversationState.deleteMessageSuccess({
+    required ConversationData data,
+  }) = _DeleteMessageSuccess;
+
+  const factory ConversationState.deleteMessageFailed({
+    required ConversationData data,
+  }) = _DeleteMessageFailed;
 }

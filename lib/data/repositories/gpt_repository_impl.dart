@@ -63,4 +63,12 @@ class GPTRepositoryImpl implements GPTRepository {
         [];
     return messages;
   }
+
+  @override
+  Future<List<String>> deleteMessage({required String title}) async {
+    final box = Hive.box<String>(HiveConstant.messageBox);
+    await box.delete(title);
+    final messages = box.keys.toList();
+    return messages.first;
+  }
 }

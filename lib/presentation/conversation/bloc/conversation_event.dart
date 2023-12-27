@@ -7,9 +7,13 @@ class ConversationEvent with _$ConversationEvent {
   const factory ConversationEvent.getAllMessage({required String title}) =
       _GetAllMessageWithTitle;
 
-  const factory ConversationEvent.saveMessage({required String title}) = _SaveMessage;
+  const factory ConversationEvent.saveMessage({required String title}) =
+      _SaveMessage;
 
   const factory ConversationEvent.getAllTitle() = _GetAllTitle;
 
   const factory ConversationEvent.reset() = _Reset;
+
+  const factory ConversationEvent.deleteMessage({required String title}) =
+      _DeleteMessage;
 }

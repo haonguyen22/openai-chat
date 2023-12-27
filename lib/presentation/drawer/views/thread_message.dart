@@ -21,9 +21,9 @@ class ThreadMessageWidget extends StatelessWidget {
           title: Text(title),
           trailing: GestureDetector(
             onTap: onDelete,
-            child: Icon(
+            child: const Icon(
               Icons.delete_forever,
-              color: Colors.red.withOpacity(0.6),
+              color: Colors.redAccent,
             ),
           ),
         ),

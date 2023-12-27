@@ -17,32 +17,48 @@ class ConversationScreen extends StatefulWidget {
 
 class _ConversationScreenState extends State<ConversationScreen> {
   final TextEditingController _controller = TextEditingController();
-  final TextEditingController _apiKeyController = TextEditingController(
-      text: "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");
+  final TextEditingController _apiKeyController = TextEditingController();
 
   final TextEditingController _titleController = TextEditingController();
+
+  void _stateListener(ConversationState state) {
+    state.maybeWhen(
+      saveMessageSuccess: (_) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Save message success"),
+          ),
+        );
+      },
+      saveMessageFailed: (_) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Save message failure"),
+          ),
+        );
+      },
+      deleteMessageSuccess: (_) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Delete message success"),
+          ),
+        );
+      },
+      deleteMessageFailed: (_) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Delete message failure"),
+          ),
+        );
+      },
+      orElse: () {},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ConversationBloc, ConversationState>(
-      listener: (_, state) {
-        state.maybeWhen(
-          saveMessageSuccess: (_) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text("Save message success"),
-              ),
-            );
-          },
-          saveMessageFailed: (_) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text("Save message failure"),
-              ),
-            );
-          },
-          orElse: () {},
-        );
-      },
+      listener: (_, state) => _stateListener(state),
       builder: (_, state) => Scaffold(
         drawer: const DrawerWidget(),
         appBar: AppBar(
@@ -50,111 +66,11 @@ class _ConversationScreenState extends State<ConversationScreen> {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {
-                showDialog<void>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('Conversation title'),
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text("Please enter the conversation title "),
-                          const SizedBox(height: 10),
-                          TextField(
-                            controller: _titleController,
-                            decoration: InputDecoration(
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            textStyle: Theme.of(context).textTheme.labelLarge,
-                          ),
-                          child: const Text('Cancel'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            textStyle: Theme.of(context).textTheme.labelLarge,
-                          ),
-                          child: const Text('Save'),
-                          onPressed: () {
-                            context.read<ConversationBloc>().add(
-                                ConversationEvent.saveMessage(
-                                    title: _titleController.text));
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
+              onPressed: _showSaveDialog,
               icon: const Icon(Icons.save),
             ),
             IconButton(
-              onPressed: () {
-                showDialog<void>(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: const Text('API Key'),
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Text(
-                              "Please enter your API key to enable the chat bot "),
-                          const SizedBox(height: 10),
-                          TextField(
-                            controller: _apiKeyController,
-                            decoration: InputDecoration(
-                              contentPadding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      actions: <Widget>[
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            textStyle: Theme.of(context).textTheme.labelLarge,
-                          ),
-                          child: const Text('Cancel'),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            textStyle: Theme.of(context).textTheme.labelLarge,
-                          ),
-                          child: const Text('Save'),
-                          onPressed: () {
-                            context
-                                .read<AppSettingBloc>()
-                                .add(SaveApiKeyEvent(_apiKeyController.text));
-                            Navigator.of(context).pop();
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
+              onPressed: _showApiKeyDialog,
               icon: const Icon(Icons.key),
             ),
           ],
@@ -211,6 +127,107 @@ class _ConversationScreenState extends State<ConversationScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  void _showSaveDialog() {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Conversation title'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text("Please enter the conversation title "),
+              const SizedBox(height: 10),
+              TextField(
+                controller: _titleController,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Save'),
+              onPressed: () {
+                context.read<ConversationBloc>().add(
+                    ConversationEvent.saveMessage(
+                        title: _titleController.text));
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _showApiKeyDialog() {
+    showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('API Key'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text("Please enter your API key to enable the chat bot "),
+              const SizedBox(height: 10),
+              TextField(
+                controller: _apiKeyController,
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Cancel'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child: const Text('Save'),
+              onPressed: () {
+                context
+                    .read<AppSettingBloc>()
+                    .add(SaveApiKeyEvent(_apiKeyController.text));
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

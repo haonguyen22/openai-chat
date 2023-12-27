@@ -23,6 +23,7 @@ class ConversationBloc extends Bloc<ConversationEvent, ConversationState> {
     on<_SaveMessage>(_saveMessage);
     on<_GetAllTitle>(_getAllTitle);
     on<_Reset>(_reset);
+    on<_DeleteMessage>(_deleteMessage);
   }
 
   FutureOr<void> _onChat(_Chat event, Emitter<ConversationState> emit) async {
@@ -98,5 +99,18 @@ class ConversationBloc extends Bloc<ConversationEvent, ConversationState> {
 
   FutureOr<void> _reset(event, Emitter<ConversationState> emit) {
     emit(const _Initial(data: ConversationData()));
+  }
+
+  FutureOr<void> _deleteMessage(
+      _DeleteMessage event, Emitter<ConversationState> emit) async {
+    try {
+      final res = await _gptUseCase.deleteMessage(title: event.title);
+      emit(_DeleteMessageSuccess(
+          data: state.data.copyWith(
+        choices: res,
+      )));
+    } catch (e) {
+      emit(_DeleteMessageFailed(data: state.data));
+    }
   }
 }

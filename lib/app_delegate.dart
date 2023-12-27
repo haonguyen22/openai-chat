@@ -21,7 +21,7 @@ class AppDelegate {
     final savedThemeMode = await AdaptiveTheme.getThemeMode();
 
     return Application(
-      title: 'LetTutor',
+      title: 'Chatbot',
       navigationKey: rootNavigationKey,
       providers: [
         BlocProvider<AppSettingBloc>(create: (_) => injector.get()),

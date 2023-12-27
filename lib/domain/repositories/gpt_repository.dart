@@ -11,4 +11,6 @@ abstract class GPTRepository {
   Future<List<String>> getAllMessages();
 
   Future<List<Message>> getAllMessagesWithTitle({required String title});
+
+  Future<List<String>> deleteMessage({required String title});
 }
