@@ -10,7 +10,7 @@ abstract class StoreModules {
     await Hive.initFlutter();
     Hive.registerAdapter(MessageAdapter());
 
-    await Hive.openBox<List<Message>>(HiveConstant.messageBox);
+    await Hive.openBox<String>(HiveConstant.messageBox);
 
     return Hive;
   }

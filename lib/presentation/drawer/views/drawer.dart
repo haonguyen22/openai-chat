@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:openai_chat/core/constants/hive.dart';
 import 'package:openai_chat/core/extensions/context_ext.dart';
-import 'package:openai_chat/data/models/chat_response/message.dart';
 import 'package:openai_chat/presentation/conversation/bloc/conversation_bloc.dart';
 import 'package:openai_chat/presentation/drawer/views/thread_message.dart';
 
@@ -16,7 +14,7 @@ class DrawerWidget extends StatefulWidget {
 }
 
 class _DrawerWidgetState extends State<DrawerWidget> {
-  late Box<List<Message>> box;
+  late Box<String> box;
 
   @override
   void initState() {
@@ -52,6 +50,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                               context.read<ConversationBloc>().add(
                                   ConversationEvent.getAllMessage(
                                       title: value.keys.elementAt(index)));
+                              Navigator.pop(context);
                             }),
                       ),
                     ],
@@ -62,7 +61,12 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context
+                        .read<ConversationBloc>()
+                        .add(const ConversationEvent.reset());
+                    Navigator.pop(context);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.redAccent,
                     shape: RoundedRectangleBorder(

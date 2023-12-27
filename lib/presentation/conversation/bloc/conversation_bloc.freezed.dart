@@ -22,6 +22,7 @@ mixin _$ConversationEvent {
     required TResult Function(String title) getAllMessage,
     required TResult Function(String title) saveMessage,
     required TResult Function() getAllTitle,
+    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$ConversationEvent {
     TResult? Function(String title)? getAllMessage,
     TResult? Function(String title)? saveMessage,
     TResult? Function()? getAllTitle,
+    TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$ConversationEvent {
     TResult Function(String title)? getAllMessage,
     TResult Function(String title)? saveMessage,
     TResult Function()? getAllTitle,
+    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$ConversationEvent {
     required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
     required TResult Function(_SaveMessage value) saveMessage,
     required TResult Function(_GetAllTitle value) getAllTitle,
+    required TResult Function(_Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$ConversationEvent {
     TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult? Function(_SaveMessage value)? saveMessage,
     TResult? Function(_GetAllTitle value)? getAllTitle,
+    TResult? Function(_Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$ConversationEvent {
     TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult Function(_SaveMessage value)? saveMessage,
     TResult Function(_GetAllTitle value)? getAllTitle,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,6 +158,7 @@ class _$_Chat implements _Chat {
     required TResult Function(String title) getAllMessage,
     required TResult Function(String title) saveMessage,
     required TResult Function() getAllTitle,
+    required TResult Function() reset,
   }) {
     return chat(message);
   }
@@ -163,6 +170,7 @@ class _$_Chat implements _Chat {
     TResult? Function(String title)? getAllMessage,
     TResult? Function(String title)? saveMessage,
     TResult? Function()? getAllTitle,
+    TResult? Function()? reset,
   }) {
     return chat?.call(message);
   }
@@ -174,6 +182,7 @@ class _$_Chat implements _Chat {
     TResult Function(String title)? getAllMessage,
     TResult Function(String title)? saveMessage,
     TResult Function()? getAllTitle,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -189,6 +198,7 @@ class _$_Chat implements _Chat {
     required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
     required TResult Function(_SaveMessage value) saveMessage,
     required TResult Function(_GetAllTitle value) getAllTitle,
+    required TResult Function(_Reset value) reset,
   }) {
     return chat(this);
   }
@@ -200,6 +210,7 @@ class _$_Chat implements _Chat {
     TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult? Function(_SaveMessage value)? saveMessage,
     TResult? Function(_GetAllTitle value)? getAllTitle,
+    TResult? Function(_Reset value)? reset,
   }) {
     return chat?.call(this);
   }
@@ -211,6 +222,7 @@ class _$_Chat implements _Chat {
     TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult Function(_SaveMessage value)? saveMessage,
     TResult Function(_GetAllTitle value)? getAllTitle,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -297,6 +309,7 @@ class _$_GetAllMessageWithTitle implements _GetAllMessageWithTitle {
     required TResult Function(String title) getAllMessage,
     required TResult Function(String title) saveMessage,
     required TResult Function() getAllTitle,
+    required TResult Function() reset,
   }) {
     return getAllMessage(title);
   }
@@ -308,6 +321,7 @@ class _$_GetAllMessageWithTitle implements _GetAllMessageWithTitle {
     TResult? Function(String title)? getAllMessage,
     TResult? Function(String title)? saveMessage,
     TResult? Function()? getAllTitle,
+    TResult? Function()? reset,
   }) {
     return getAllMessage?.call(title);
   }
@@ -319,6 +333,7 @@ class _$_GetAllMessageWithTitle implements _GetAllMessageWithTitle {
     TResult Function(String title)? getAllMessage,
     TResult Function(String title)? saveMessage,
     TResult Function()? getAllTitle,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (getAllMessage != null) {
@@ -334,6 +349,7 @@ class _$_GetAllMessageWithTitle implements _GetAllMessageWithTitle {
     required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
     required TResult Function(_SaveMessage value) saveMessage,
     required TResult Function(_GetAllTitle value) getAllTitle,
+    required TResult Function(_Reset value) reset,
   }) {
     return getAllMessage(this);
   }
@@ -345,6 +361,7 @@ class _$_GetAllMessageWithTitle implements _GetAllMessageWithTitle {
     TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult? Function(_SaveMessage value)? saveMessage,
     TResult? Function(_GetAllTitle value)? getAllTitle,
+    TResult? Function(_Reset value)? reset,
   }) {
     return getAllMessage?.call(this);
   }
@@ -356,6 +373,7 @@ class _$_GetAllMessageWithTitle implements _GetAllMessageWithTitle {
     TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult Function(_SaveMessage value)? saveMessage,
     TResult Function(_GetAllTitle value)? getAllTitle,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (getAllMessage != null) {
@@ -443,6 +461,7 @@ class _$_SaveMessage implements _SaveMessage {
     required TResult Function(String title) getAllMessage,
     required TResult Function(String title) saveMessage,
     required TResult Function() getAllTitle,
+    required TResult Function() reset,
   }) {
     return saveMessage(title);
   }
@@ -454,6 +473,7 @@ class _$_SaveMessage implements _SaveMessage {
     TResult? Function(String title)? getAllMessage,
     TResult? Function(String title)? saveMessage,
     TResult? Function()? getAllTitle,
+    TResult? Function()? reset,
   }) {
     return saveMessage?.call(title);
   }
@@ -465,6 +485,7 @@ class _$_SaveMessage implements _SaveMessage {
     TResult Function(String title)? getAllMessage,
     TResult Function(String title)? saveMessage,
     TResult Function()? getAllTitle,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (saveMessage != null) {
@@ -480,6 +501,7 @@ class _$_SaveMessage implements _SaveMessage {
     required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
     required TResult Function(_SaveMessage value) saveMessage,
     required TResult Function(_GetAllTitle value) getAllTitle,
+    required TResult Function(_Reset value) reset,
   }) {
     return saveMessage(this);
   }
@@ -491,6 +513,7 @@ class _$_SaveMessage implements _SaveMessage {
     TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult? Function(_SaveMessage value)? saveMessage,
     TResult? Function(_GetAllTitle value)? getAllTitle,
+    TResult? Function(_Reset value)? reset,
   }) {
     return saveMessage?.call(this);
   }
@@ -502,6 +525,7 @@ class _$_SaveMessage implements _SaveMessage {
     TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult Function(_SaveMessage value)? saveMessage,
     TResult Function(_GetAllTitle value)? getAllTitle,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (saveMessage != null) {
@@ -562,6 +586,7 @@ class _$_GetAllTitle implements _GetAllTitle {
     required TResult Function(String title) getAllMessage,
     required TResult Function(String title) saveMessage,
     required TResult Function() getAllTitle,
+    required TResult Function() reset,
   }) {
     return getAllTitle();
   }
@@ -573,6 +598,7 @@ class _$_GetAllTitle implements _GetAllTitle {
     TResult? Function(String title)? getAllMessage,
     TResult? Function(String title)? saveMessage,
     TResult? Function()? getAllTitle,
+    TResult? Function()? reset,
   }) {
     return getAllTitle?.call();
   }
@@ -584,6 +610,7 @@ class _$_GetAllTitle implements _GetAllTitle {
     TResult Function(String title)? getAllMessage,
     TResult Function(String title)? saveMessage,
     TResult Function()? getAllTitle,
+    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (getAllTitle != null) {
@@ -599,6 +626,7 @@ class _$_GetAllTitle implements _GetAllTitle {
     required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
     required TResult Function(_SaveMessage value) saveMessage,
     required TResult Function(_GetAllTitle value) getAllTitle,
+    required TResult Function(_Reset value) reset,
   }) {
     return getAllTitle(this);
   }
@@ -610,6 +638,7 @@ class _$_GetAllTitle implements _GetAllTitle {
     TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult? Function(_SaveMessage value)? saveMessage,
     TResult? Function(_GetAllTitle value)? getAllTitle,
+    TResult? Function(_Reset value)? reset,
   }) {
     return getAllTitle?.call(this);
   }
@@ -621,6 +650,7 @@ class _$_GetAllTitle implements _GetAllTitle {
     TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
     TResult Function(_SaveMessage value)? saveMessage,
     TResult Function(_GetAllTitle value)? getAllTitle,
+    TResult Function(_Reset value)? reset,
     required TResult orElse(),
   }) {
     if (getAllTitle != null) {
@@ -635,6 +665,124 @@ abstract class _GetAllTitle implements ConversationEvent {
 }
 
 /// @nodoc
+abstract class _$$_ResetCopyWith<$Res> {
+  factory _$$_ResetCopyWith(_$_Reset value, $Res Function(_$_Reset) then) =
+      __$$_ResetCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_ResetCopyWithImpl<$Res>
+    extends _$ConversationEventCopyWithImpl<$Res, _$_Reset>
+    implements _$$_ResetCopyWith<$Res> {
+  __$$_ResetCopyWithImpl(_$_Reset _value, $Res Function(_$_Reset) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Reset implements _Reset {
+  const _$_Reset();
+
+  @override
+  String toString() {
+    return 'ConversationEvent.reset()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Reset);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) chat,
+    required TResult Function(String title) getAllMessage,
+    required TResult Function(String title) saveMessage,
+    required TResult Function() getAllTitle,
+    required TResult Function() reset,
+  }) {
+    return reset();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? chat,
+    TResult? Function(String title)? getAllMessage,
+    TResult? Function(String title)? saveMessage,
+    TResult? Function()? getAllTitle,
+    TResult? Function()? reset,
+  }) {
+    return reset?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? chat,
+    TResult Function(String title)? getAllMessage,
+    TResult Function(String title)? saveMessage,
+    TResult Function()? getAllTitle,
+    TResult Function()? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Chat value) chat,
+    required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
+    required TResult Function(_SaveMessage value) saveMessage,
+    required TResult Function(_GetAllTitle value) getAllTitle,
+    required TResult Function(_Reset value) reset,
+  }) {
+    return reset(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Chat value)? chat,
+    TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult? Function(_SaveMessage value)? saveMessage,
+    TResult? Function(_GetAllTitle value)? getAllTitle,
+    TResult? Function(_Reset value)? reset,
+  }) {
+    return reset?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Chat value)? chat,
+    TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult Function(_SaveMessage value)? saveMessage,
+    TResult Function(_GetAllTitle value)? getAllTitle,
+    TResult Function(_Reset value)? reset,
+    required TResult orElse(),
+  }) {
+    if (reset != null) {
+      return reset(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Reset implements ConversationEvent {
+  const factory _Reset() = _$_Reset;
+}
+
+/// @nodoc
 mixin _$ConversationState {
   ConversationData get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -644,6 +792,8 @@ mixin _$ConversationState {
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
     required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -653,6 +803,8 @@ mixin _$ConversationState {
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
     TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -662,6 +814,8 @@ mixin _$ConversationState {
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
     TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -672,6 +826,8 @@ mixin _$ConversationState {
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
     required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -681,6 +837,8 @@ mixin _$ConversationState {
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -690,6 +848,8 @@ mixin _$ConversationState {
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -815,6 +975,8 @@ class _$_Initial implements _Initial {
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
     required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
   }) {
     return initial(data);
   }
@@ -827,6 +989,8 @@ class _$_Initial implements _Initial {
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
     TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
   }) {
     return initial?.call(data);
   }
@@ -839,6 +1003,8 @@ class _$_Initial implements _Initial {
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
     TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -855,6 +1021,8 @@ class _$_Initial implements _Initial {
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
     required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
   }) {
     return initial(this);
   }
@@ -867,6 +1035,8 @@ class _$_Initial implements _Initial {
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
   }) {
     return initial?.call(this);
   }
@@ -879,6 +1049,8 @@ class _$_Initial implements _Initial {
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -972,6 +1144,8 @@ class _$_Loading implements _Loading {
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
     required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
   }) {
     return loading(data);
   }
@@ -984,6 +1158,8 @@ class _$_Loading implements _Loading {
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
     TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
   }) {
     return loading?.call(data);
   }
@@ -996,6 +1172,8 @@ class _$_Loading implements _Loading {
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
     TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1012,6 +1190,8 @@ class _$_Loading implements _Loading {
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
     required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
   }) {
     return loading(this);
   }
@@ -1024,6 +1204,8 @@ class _$_Loading implements _Loading {
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
   }) {
     return loading?.call(this);
   }
@@ -1036,6 +1218,8 @@ class _$_Loading implements _Loading {
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1129,6 +1313,8 @@ class _$_Success implements _Success {
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
     required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
   }) {
     return success(data);
   }
@@ -1141,6 +1327,8 @@ class _$_Success implements _Success {
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
     TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
   }) {
     return success?.call(data);
   }
@@ -1153,6 +1341,8 @@ class _$_Success implements _Success {
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
     TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1169,6 +1359,8 @@ class _$_Success implements _Success {
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
     required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
   }) {
     return success(this);
   }
@@ -1181,6 +1373,8 @@ class _$_Success implements _Success {
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
   }) {
     return success?.call(this);
   }
@@ -1193,6 +1387,8 @@ class _$_Success implements _Success {
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -1286,6 +1482,8 @@ class _$_Failure implements _Failure {
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
     required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
   }) {
     return failure(data);
   }
@@ -1298,6 +1496,8 @@ class _$_Failure implements _Failure {
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
     TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
   }) {
     return failure?.call(data);
   }
@@ -1310,6 +1510,8 @@ class _$_Failure implements _Failure {
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
     TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -1326,6 +1528,8 @@ class _$_Failure implements _Failure {
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
     required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
   }) {
     return failure(this);
   }
@@ -1338,6 +1542,8 @@ class _$_Failure implements _Failure {
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
   }) {
     return failure?.call(this);
   }
@@ -1350,6 +1556,8 @@ class _$_Failure implements _Failure {
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -1445,6 +1653,8 @@ class _$_GetAllMessageSuccess implements _GetAllMessageSuccess {
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
     required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
   }) {
     return getAllMessageSuccess(data);
   }
@@ -1457,6 +1667,8 @@ class _$_GetAllMessageSuccess implements _GetAllMessageSuccess {
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
     TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
   }) {
     return getAllMessageSuccess?.call(data);
   }
@@ -1469,6 +1681,8 @@ class _$_GetAllMessageSuccess implements _GetAllMessageSuccess {
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
     TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (getAllMessageSuccess != null) {
@@ -1485,6 +1699,8 @@ class _$_GetAllMessageSuccess implements _GetAllMessageSuccess {
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
     required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
   }) {
     return getAllMessageSuccess(this);
   }
@@ -1497,6 +1713,8 @@ class _$_GetAllMessageSuccess implements _GetAllMessageSuccess {
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
     TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
   }) {
     return getAllMessageSuccess?.call(this);
   }
@@ -1509,6 +1727,8 @@ class _$_GetAllMessageSuccess implements _GetAllMessageSuccess {
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
     TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
     required TResult orElse(),
   }) {
     if (getAllMessageSuccess != null) {
@@ -1527,5 +1747,349 @@ abstract class _GetAllMessageSuccess implements ConversationState {
   @override
   @JsonKey(ignore: true)
   _$$_GetAllMessageSuccessCopyWith<_$_GetAllMessageSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SaveMessageSuccessCopyWith<$Res>
+    implements $ConversationStateCopyWith<$Res> {
+  factory _$$_SaveMessageSuccessCopyWith(_$_SaveMessageSuccess value,
+          $Res Function(_$_SaveMessageSuccess) then) =
+      __$$_SaveMessageSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ConversationData data});
+
+  @override
+  $ConversationDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SaveMessageSuccessCopyWithImpl<$Res>
+    extends _$ConversationStateCopyWithImpl<$Res, _$_SaveMessageSuccess>
+    implements _$$_SaveMessageSuccessCopyWith<$Res> {
+  __$$_SaveMessageSuccessCopyWithImpl(
+      _$_SaveMessageSuccess _value, $Res Function(_$_SaveMessageSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SaveMessageSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ConversationData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SaveMessageSuccess implements _SaveMessageSuccess {
+  const _$_SaveMessageSuccess({required this.data});
+
+  @override
+  final ConversationData data;
+
+  @override
+  String toString() {
+    return 'ConversationState.saveMessageSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SaveMessageSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SaveMessageSuccessCopyWith<_$_SaveMessageSuccess> get copyWith =>
+      __$$_SaveMessageSuccessCopyWithImpl<_$_SaveMessageSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ConversationData data) initial,
+    required TResult Function(ConversationData data) loading,
+    required TResult Function(ConversationData data) success,
+    required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
+  }) {
+    return saveMessageSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ConversationData data)? initial,
+    TResult? Function(ConversationData data)? loading,
+    TResult? Function(ConversationData data)? success,
+    TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
+  }) {
+    return saveMessageSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ConversationData data)? initial,
+    TResult Function(ConversationData data)? loading,
+    TResult Function(ConversationData data)? success,
+    TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
+    required TResult orElse(),
+  }) {
+    if (saveMessageSuccess != null) {
+      return saveMessageSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
+  }) {
+    return saveMessageSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
+  }) {
+    return saveMessageSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
+    required TResult orElse(),
+  }) {
+    if (saveMessageSuccess != null) {
+      return saveMessageSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveMessageSuccess implements ConversationState {
+  const factory _SaveMessageSuccess({required final ConversationData data}) =
+      _$_SaveMessageSuccess;
+
+  @override
+  ConversationData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SaveMessageSuccessCopyWith<_$_SaveMessageSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SaveMessageFailedCopyWith<$Res>
+    implements $ConversationStateCopyWith<$Res> {
+  factory _$$_SaveMessageFailedCopyWith(_$_SaveMessageFailed value,
+          $Res Function(_$_SaveMessageFailed) then) =
+      __$$_SaveMessageFailedCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ConversationData data});
+
+  @override
+  $ConversationDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_SaveMessageFailedCopyWithImpl<$Res>
+    extends _$ConversationStateCopyWithImpl<$Res, _$_SaveMessageFailed>
+    implements _$$_SaveMessageFailedCopyWith<$Res> {
+  __$$_SaveMessageFailedCopyWithImpl(
+      _$_SaveMessageFailed _value, $Res Function(_$_SaveMessageFailed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_SaveMessageFailed(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ConversationData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SaveMessageFailed implements _SaveMessageFailed {
+  const _$_SaveMessageFailed({required this.data});
+
+  @override
+  final ConversationData data;
+
+  @override
+  String toString() {
+    return 'ConversationState.saveMessageFailed(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SaveMessageFailed &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SaveMessageFailedCopyWith<_$_SaveMessageFailed> get copyWith =>
+      __$$_SaveMessageFailedCopyWithImpl<_$_SaveMessageFailed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ConversationData data) initial,
+    required TResult Function(ConversationData data) loading,
+    required TResult Function(ConversationData data) success,
+    required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageSuccess,
+    required TResult Function(ConversationData data) saveMessageFailed,
+  }) {
+    return saveMessageFailed(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ConversationData data)? initial,
+    TResult? Function(ConversationData data)? loading,
+    TResult? Function(ConversationData data)? success,
+    TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageSuccess,
+    TResult? Function(ConversationData data)? saveMessageFailed,
+  }) {
+    return saveMessageFailed?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ConversationData data)? initial,
+    TResult Function(ConversationData data)? loading,
+    TResult Function(ConversationData data)? success,
+    TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageSuccess,
+    TResult Function(ConversationData data)? saveMessageFailed,
+    required TResult orElse(),
+  }) {
+    if (saveMessageFailed != null) {
+      return saveMessageFailed(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+    required TResult Function(_SaveMessageSuccess value) saveMessageSuccess,
+    required TResult Function(_SaveMessageFailed value) saveMessageFailed,
+  }) {
+    return saveMessageFailed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult? Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult? Function(_SaveMessageFailed value)? saveMessageFailed,
+  }) {
+    return saveMessageFailed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    TResult Function(_SaveMessageSuccess value)? saveMessageSuccess,
+    TResult Function(_SaveMessageFailed value)? saveMessageFailed,
+    required TResult orElse(),
+  }) {
+    if (saveMessageFailed != null) {
+      return saveMessageFailed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveMessageFailed implements ConversationState {
+  const factory _SaveMessageFailed({required final ConversationData data}) =
+      _$_SaveMessageFailed;
+
+  @override
+  ConversationData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_SaveMessageFailedCopyWith<_$_SaveMessageFailed> get copyWith =>
       throw _privateConstructorUsedError;
 }

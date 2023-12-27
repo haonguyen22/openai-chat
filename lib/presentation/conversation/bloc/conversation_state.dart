@@ -21,5 +21,12 @@ class ConversationState with _$ConversationState {
   const factory ConversationState.getAllMessageSuccess({
     required ConversationData data,
   }) = _GetAllMessageSuccess;
-  
+
+  const factory ConversationState.saveMessageSuccess({
+    required ConversationData data,
+  }) = _SaveMessageSuccess;
+
+  const factory ConversationState.saveMessageFailed({
+    required ConversationData data,
+  }) = _SaveMessageFailed;
 }

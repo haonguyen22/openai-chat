@@ -22,6 +22,7 @@ class ConversationBloc extends Bloc<ConversationEvent, ConversationState> {
     on<_GetAllMessageWithTitle>(_getAllMessageWithTitle);
     on<_SaveMessage>(_saveMessage);
     on<_GetAllTitle>(_getAllTitle);
+    on<_Reset>(_reset);
   }
 
   FutureOr<void> _onChat(_Chat event, Emitter<ConversationState> emit) async {
@@ -80,12 +81,22 @@ class ConversationBloc extends Bloc<ConversationEvent, ConversationState> {
 
   FutureOr<void> _saveMessage(
       _SaveMessage event, Emitter<ConversationState> emit) async {
-    await _gptUseCase.saveMessage(title: event.title,message: state.data.messages ?? []);
+    try {
+      await _gptUseCase.saveMessage(
+          title: event.title, message: state.data.messages ?? []);
+      emit(_SaveMessageSuccess(data: state.data));
+    } catch (e) {
+      emit(_SaveMessageFailed(data: state.data));
+    }
   }
 
   FutureOr<void> _getAllTitle(
       _GetAllTitle event, Emitter<ConversationState> emit) async {
     final res = await _gptUseCase.getAllTitle();
     emit(state.copyWith(data: state.data.copyWith(choices: res)));
+  }
+
+  FutureOr<void> _reset(event, Emitter<ConversationState> emit) {
+    emit(const _Initial(data: ConversationData()));
   }
 }

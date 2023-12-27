@@ -23,7 +23,26 @@ class _ConversationScreenState extends State<ConversationScreen> {
   final TextEditingController _titleController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ConversationBloc, ConversationState>(
+    return BlocConsumer<ConversationBloc, ConversationState>(
+      listener: (_, state) {
+        state.maybeWhen(
+          saveMessageSuccess: (_) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Save message success"),
+              ),
+            );
+          },
+          saveMessageFailed: (_) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Save message failure"),
+              ),
+            );
+          },
+          orElse: () {},
+        );
+      },
       builder: (_, state) => Scaffold(
         drawer: const DrawerWidget(),
         appBar: AppBar(
@@ -136,7 +155,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
                   },
                 );
               },
-              icon: const Icon(Icons.settings),
+              icon: const Icon(Icons.key),
             ),
           ],
         ),

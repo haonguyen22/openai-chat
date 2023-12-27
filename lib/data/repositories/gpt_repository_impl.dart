@@ -1,4 +1,5 @@
-import 'package:collection/collection.dart';
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
 import 'package:injectable/injectable.dart';
 import 'package:openai_chat/core/constants/hive.dart';
@@ -24,32 +25,42 @@ class GPTRepositoryImpl implements GPTRepository {
   }
 
   @override
-  Future<void> saveMessage({required List<Message> message, required String title}) async {
-    final box = Hive.box<List<Message>>(HiveConstant.messageBox);
+  Future<void> saveMessage(
+      {required List<Message> message, required String title}) async {
+    final box = Hive.box<String>(HiveConstant.messageBox);
 
-    await box.put(title, message);
+    await box.put(title, message.map((e) => jsonEncode(e)).join(' - '));
   }
 
   @override
   Future<List<Message>> getMessages() async {
-    final box = Hive.box<List<Message>>(HiveConstant.messageBox);
+    final box = Hive.box<String>(HiveConstant.messageBox);
 
-    final messages = box.values.toList();
-    return messages.first;
+    final messages = box.values.first
+        .split(' - ')
+        .map((e) => Message.fromJson(jsonDecode(e)))
+        .toList();
+
+    return messages;
   }
 
   @override
   Future<List<String>> getAllMessages() async {
-    final box = Hive.box<List<Message>>(HiveConstant.messageBox);
+    final box = Hive.box<String>(HiveConstant.messageBox);
     final messages = box.keys.toList();
     return messages.first;
   }
 
   @override
   Future<List<Message>> getAllMessagesWithTitle({required String title}) async {
-    final box = Hive.box<List<Message>>(HiveConstant.messageBox);
+    final box = Hive.box<String>(HiveConstant.messageBox);
 
-    final messages = box.get(title, defaultValue: <Message>[]) as List<Message>;
+    final messages = box
+            .get(title, defaultValue: "")
+            ?.split(' - ')
+            .map((e) => Message.fromJson(jsonDecode(e)))
+            .toList() ??
+        [];
     return messages;
   }
 }

@@ -59,12 +59,4 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
       emit(SaveSuccess(state.langCode, state.appearance, state.apiKey));
     }
   }
-
-  FutureOr<void> mapSaveConversationEvent(
-      SaveConversationEvent event, Emitter<AppSettingState> emit) async {
-    // final isSave = await hiveInterface.;
-    // if (isSave) {
-    //   emit(SaveSuccess(state.langCode, state.appearance, state.apiKey));
-    // }
-  }
 }

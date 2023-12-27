@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:hive/hive.dart';
 import 'package:openai_chat/core/constants/hive.dart';
 
@@ -28,5 +30,9 @@ class Message {
       'role': role,
       'content': content,
     };
+  }
+
+  Map<String, dynamic> toMap(String e) {
+    return jsonDecode(e);
   }
 }
