@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:let_tutor/data/datasource/local/preference.dart';
+import 'package:openai_chat/data/datasource/local/preference.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _kLangDefault = 'en';
@@ -37,7 +37,6 @@ class SharedPreferencesUseCase {
   Future<bool> setRefreshToken(String token) =>
       _sharedPreferences.setString(Preference.refreshToken, token);
 
-
   Future<bool> setExpired(String token) =>
       _sharedPreferences.setString(Preference.refreshToken, token);
 
@@ -50,5 +49,12 @@ class SharedPreferencesUseCase {
 
   int getExpireTime() {
     return _sharedPreferences.getInt(Preference.expireTime) ?? 0;
+  }
+
+  Future<bool> setApikey(String apikey) =>
+      _sharedPreferences.setString(Preference.apikey, apikey);
+
+  String getApikey() {
+    return _sharedPreferences.getString(Preference.apikey) ?? "";
   }
 }

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:let_tutor/domain/usecase/shared_preferences_usecase.dart';
+import 'package:openai_chat/domain/usecase/shared_preferences_usecase.dart';
 import 'package:meta/meta.dart';
 
 part 'app_setting_event.dart';
@@ -16,9 +16,11 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
       : super(AppSettingInitial(
           sharedPreferencesUseCase.getLanguage(),
           sharedPreferencesUseCase.getAppearance().convertToAppearance(),
+          sharedPreferencesUseCase.getApikey(),
         )) {
     on<SaveLanguageEvent>(mapSaveLanguageEvent);
     on<SaveAppearanceEvent>(mapSaveAppearanceEvent);
+    on<SaveApiKeyEvent>(mapSaveApiKeyEvent);
   }
 
   FutureOr<void> mapSaveLanguageEvent(
@@ -30,7 +32,7 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
 
     final isSave = await sharedPreferencesUseCase.setLanguage(newLangCode);
     if (isSave) {
-      emit(SaveSuccess(newLangCode, state.appearance));
+      emit(SaveSuccess(newLangCode, state.appearance, state.apiKey));
     }
   }
 
@@ -44,7 +46,16 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
     final isSave =
         await sharedPreferencesUseCase.setAppearance(newModeTheme.name);
     if (isSave) {
-      emit(SaveSuccess(state.langCode, newModeTheme));
+      emit(SaveSuccess(state.langCode, newModeTheme, state.apiKey));
+    }
+  }
+
+  // set api key
+  FutureOr<void> mapSaveApiKeyEvent(
+      SaveApiKeyEvent event, Emitter<AppSettingState> emit) async {
+    final isSave = await sharedPreferencesUseCase.setApikey(event.apiKey);
+    if (isSave) {
+      emit(SaveSuccess(state.langCode, state.appearance, state.apiKey));
     }
   }
 }

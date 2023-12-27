@@ -1,5 +1,15 @@
+
+import 'package:hive/hive.dart';
+import 'package:openai_chat/core/constants/hive.dart';
+
+// part 'message.g.dart';
+
+// @HiveType(typeId: HiveConstant.messageHiveId)
 class Message {
+  // @HiveField(0)
   final String? role;
+
+  // @HiveField(1)
   final String? content;
 
   Message({

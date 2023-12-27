@@ -4,4 +4,6 @@ class Preference {
   static const String accessToken = "accessToken";
   static const String refreshToken = "refreshToken";
   static const String expireTime = "expireTime";
+  static const String apikey = "apikey";
+
 }

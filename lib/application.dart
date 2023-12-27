@@ -2,8 +2,8 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
-import 'package:let_tutor/routes/routes.dart';
+import 'package:openai_chat/presentation/app_setting/bloc/app_setting_bloc.dart';
+import 'package:openai_chat/routes/routes.dart';
 import 'package:localization/localization.dart';
 
 class Application extends StatefulWidget {

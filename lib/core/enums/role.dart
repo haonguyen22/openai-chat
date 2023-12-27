@@ -1,7 +1,9 @@
 enum Role {
-  user("Me"),
-  assistant("Bot");
+  user("user", "Me"),
+  assistant("assistant", "Bot");
 
   final String title;
-  const Role(this.title);
+  final String name;
+  const Role(this.name, this.title);
 }
+

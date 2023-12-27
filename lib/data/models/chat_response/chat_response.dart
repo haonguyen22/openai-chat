@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:let_tutor/data/models/chat_response/choice_response.dart';
+import 'package:openai_chat/data/models/chat_response/choice_response.dart';
 
 part 'chat_response.freezed.dart';
 part 'chat_response.g.dart';

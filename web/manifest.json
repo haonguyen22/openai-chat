@@ -1,6 +1,6 @@
 {
-    "name": "let_tutor",
-    "short_name": "let_tutor",
+    "name": "openai_chat",
+    "short_name": "openai_chat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/core/extensions/context_ext.dart';
-import 'package:let_tutor/presentation/drawer/views/thread_message.dart';
+import 'package:openai_chat/core/extensions/context_ext.dart';
+import 'package:openai_chat/presentation/drawer/views/thread_message.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});

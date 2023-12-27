@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/presentation/home/views/home_screen.dart';
-import 'package:let_tutor/routes/route_list.dart';
+import 'package:openai_chat/presentation/conversation/views/conversation_screen.dart';
+import 'package:openai_chat/routes/route_list.dart';
 
 class Routes {
   static Map<String, WidgetBuilder> getAll() => _routes;
 
   static final _routes = <String, WidgetBuilder>{
-    RouteList.home: (context) => const HomeScreen(),
+    RouteList.home: (context) => const ConversationScreen(),
   };
 
   static Route getRouteGenerate(RouteSettings settings) {
@@ -14,7 +14,7 @@ class Routes {
       case RouteList.home:
         return _buildRoute(
           settings,
-          (context) => const HomeScreen(),
+          (context) => const ConversationScreen(),
         );
 
       default:

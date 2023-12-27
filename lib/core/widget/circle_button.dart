@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:openai_chat/core/extensions/context_ext.dart';
 
 class CircleButton extends StatelessWidget {
   final String? image;

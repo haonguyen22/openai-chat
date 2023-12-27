@@ -1,4 +1,4 @@
-import 'package:let_tutor/app_delegate.dart';
+import 'package:openai_chat/app_delegate.dart';
 
 void main() {
   AppDelegate().run();

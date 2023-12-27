@@ -6,10 +6,9 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
-import 'package:let_tutor/core/dependency_injection/di.dart';
-import 'package:let_tutor/domain/usecase/shared_preferences_usecase.dart';
+import 'package:openai_chat/core/dependency_injection/di.dart';
+import 'package:openai_chat/domain/usecase/shared_preferences_usecase.dart';
 
-/// References: https://github.com/nguyenminhhung2011/State_manage_stream/blob/main/lib/core/app_core_factory.dart
 class AppCoreFactory {
   static Dio createDio(String baseUrl) {
     final dio = Dio(
@@ -36,8 +35,6 @@ class AppCoreFactory {
 }
 
 class TokenInterceptor implements Interceptor {
-  // final AuthApi _authApi = injector.get<AuthApi>();
-
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) async {
     return handler.next(err);
@@ -46,19 +43,20 @@ class TokenInterceptor implements Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    String accessToken =
-        injector.get<SharedPreferencesUseCase>().getAccessToken();
-    String refreshToken =
-        injector.get<SharedPreferencesUseCase>().getRefreshToken();
-    int expiredTime = injector.get<SharedPreferencesUseCase>().getExpireTime();
+    String apiKey = injector.get<SharedPreferencesUseCase>().getApikey();
 
-    log('🌟[Access] $accessToken\n[Refresh] $refreshToken');
+    log('🌟[key] $apiKey');
 
-    if (accessToken.isEmpty || refreshToken.isEmpty || expiredTime == -1) {
-      return handler.next(options);
+    if (apiKey.isEmpty) {
+      return handler.reject(
+        DioException(
+          requestOptions: options,
+          message: "Api key is empty, please set api key first",
+        ),
+      );
     }
 
-    options.headers["Authorization"] = "Bearer $accessToken";
+    options.headers["Authorization"] = "Bearer $apiKey";
     return handler.next(options);
   }
 

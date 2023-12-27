@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:openai_chat/core/extensions/context_ext.dart';
 
 class MultiChoiceWidget<T> extends StatefulWidget {
   final List<T>? listItemChoice;

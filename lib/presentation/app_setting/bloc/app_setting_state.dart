@@ -4,10 +4,12 @@ part of 'app_setting_bloc.dart';
 abstract class AppSettingState {
   final String langCode;
   final Appearance appearance;
+  final String? apiKey;
 
   const AppSettingState(
     this.langCode,
     this.appearance,
+    this.apiKey,
   );
 
   get languageCode => null;
@@ -23,16 +25,17 @@ abstract class AppSettingState {
 }
 
 class AppSettingInitial extends AppSettingState {
-  const AppSettingInitial(super.langCode, super.appearance);
+  const AppSettingInitial(super.langCode, super.appearance, super.apiKey);
 }
 
 class SaveSuccess extends AppSettingInitial {
-  const SaveSuccess(super.languageCode, super.appearance);
+  const SaveSuccess(super.languageCode, super.appearance, super.apiKey);
 
   SaveSuccess copyWith({String? newLangCode, Appearance? newAppearance}) {
     return SaveSuccess(
       newLangCode ?? langCode,
       newAppearance ?? appearance,
+      apiKey,
     );
   }
 }
