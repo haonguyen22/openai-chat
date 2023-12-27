@@ -9,5 +9,6 @@ class ConversationData with _$ConversationData {
     List<Message>? messages,
     String? title,
     @Default(false) bool isTyping,
+    @Default([]) List<String> choices,
   }) = _ConversationData;
 }

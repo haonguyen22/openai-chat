@@ -20,6 +20,7 @@ class _ConversationScreenState extends State<ConversationScreen> {
   final TextEditingController _apiKeyController = TextEditingController(
       text: "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");
 
+  final TextEditingController _titleController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ConversationBloc, ConversationState>(
@@ -30,7 +31,57 @@ class _ConversationScreenState extends State<ConversationScreen> {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: const Text('Conversation title'),
+                      content: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text("Please enter the conversation title "),
+                          const SizedBox(height: 10),
+                          TextField(
+                            controller: _titleController,
+                            decoration: InputDecoration(
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            textStyle: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          child: const Text('Cancel'),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        TextButton(
+                          style: TextButton.styleFrom(
+                            textStyle: Theme.of(context).textTheme.labelLarge,
+                          ),
+                          child: const Text('Save'),
+                          onPressed: () {
+                            context.read<ConversationBloc>().add(
+                                ConversationEvent.saveMessage(
+                                    title: _titleController.text));
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
               icon: const Icon(Icons.save),
             ),
             IconButton(

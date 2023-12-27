@@ -16,42 +16,55 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ConversationEvent {
-  String get message => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) chat,
+    required TResult Function(String title) getAllMessage,
+    required TResult Function(String title) saveMessage,
+    required TResult Function() getAllTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? chat,
+    TResult? Function(String title)? getAllMessage,
+    TResult? Function(String title)? saveMessage,
+    TResult? Function()? getAllTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? chat,
+    TResult Function(String title)? getAllMessage,
+    TResult Function(String title)? saveMessage,
+    TResult Function()? getAllTitle,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Chat value) chat,
+    required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
+    required TResult Function(_SaveMessage value) saveMessage,
+    required TResult Function(_GetAllTitle value) getAllTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Chat value)? chat,
+    TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult? Function(_SaveMessage value)? saveMessage,
+    TResult? Function(_GetAllTitle value)? getAllTitle,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Chat value)? chat,
+    TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult Function(_SaveMessage value)? saveMessage,
+    TResult Function(_GetAllTitle value)? getAllTitle,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ConversationEventCopyWith<ConversationEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +73,6 @@ abstract class $ConversationEventCopyWith<$Res> {
   factory $ConversationEventCopyWith(
           ConversationEvent value, $Res Function(ConversationEvent) then) =
       _$ConversationEventCopyWithImpl<$Res, ConversationEvent>;
-  @useResult
-  $Res call({String message});
 }
 
 /// @nodoc
@@ -73,27 +84,12 @@ class _$ConversationEventCopyWithImpl<$Res, $Val extends ConversationEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? message = null,
-  }) {
-    return _then(_value.copyWith(
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$_ChatCopyWith<$Res>
-    implements $ConversationEventCopyWith<$Res> {
+abstract class _$$_ChatCopyWith<$Res> {
   factory _$$_ChatCopyWith(_$_Chat value, $Res Function(_$_Chat) then) =
       __$$_ChatCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String message});
 }
@@ -153,6 +149,9 @@ class _$_Chat implements _Chat {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String message) chat,
+    required TResult Function(String title) getAllMessage,
+    required TResult Function(String title) saveMessage,
+    required TResult Function() getAllTitle,
   }) {
     return chat(message);
   }
@@ -161,6 +160,9 @@ class _$_Chat implements _Chat {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String message)? chat,
+    TResult? Function(String title)? getAllMessage,
+    TResult? Function(String title)? saveMessage,
+    TResult? Function()? getAllTitle,
   }) {
     return chat?.call(message);
   }
@@ -169,6 +171,9 @@ class _$_Chat implements _Chat {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String message)? chat,
+    TResult Function(String title)? getAllMessage,
+    TResult Function(String title)? saveMessage,
+    TResult Function()? getAllTitle,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -181,6 +186,9 @@ class _$_Chat implements _Chat {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Chat value) chat,
+    required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
+    required TResult Function(_SaveMessage value) saveMessage,
+    required TResult Function(_GetAllTitle value) getAllTitle,
   }) {
     return chat(this);
   }
@@ -189,6 +197,9 @@ class _$_Chat implements _Chat {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Chat value)? chat,
+    TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult? Function(_SaveMessage value)? saveMessage,
+    TResult? Function(_GetAllTitle value)? getAllTitle,
   }) {
     return chat?.call(this);
   }
@@ -197,6 +208,9 @@ class _$_Chat implements _Chat {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Chat value)? chat,
+    TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult Function(_SaveMessage value)? saveMessage,
+    TResult Function(_GetAllTitle value)? getAllTitle,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -209,11 +223,415 @@ class _$_Chat implements _Chat {
 abstract class _Chat implements ConversationEvent {
   const factory _Chat({required final String message}) = _$_Chat;
 
-  @override
   String get message;
-  @override
   @JsonKey(ignore: true)
   _$$_ChatCopyWith<_$_Chat> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetAllMessageWithTitleCopyWith<$Res> {
+  factory _$$_GetAllMessageWithTitleCopyWith(_$_GetAllMessageWithTitle value,
+          $Res Function(_$_GetAllMessageWithTitle) then) =
+      __$$_GetAllMessageWithTitleCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String title});
+}
+
+/// @nodoc
+class __$$_GetAllMessageWithTitleCopyWithImpl<$Res>
+    extends _$ConversationEventCopyWithImpl<$Res, _$_GetAllMessageWithTitle>
+    implements _$$_GetAllMessageWithTitleCopyWith<$Res> {
+  __$$_GetAllMessageWithTitleCopyWithImpl(_$_GetAllMessageWithTitle _value,
+      $Res Function(_$_GetAllMessageWithTitle) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+  }) {
+    return _then(_$_GetAllMessageWithTitle(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetAllMessageWithTitle implements _GetAllMessageWithTitle {
+  const _$_GetAllMessageWithTitle({required this.title});
+
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'ConversationEvent.getAllMessage(title: $title)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAllMessageWithTitle &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAllMessageWithTitleCopyWith<_$_GetAllMessageWithTitle> get copyWith =>
+      __$$_GetAllMessageWithTitleCopyWithImpl<_$_GetAllMessageWithTitle>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) chat,
+    required TResult Function(String title) getAllMessage,
+    required TResult Function(String title) saveMessage,
+    required TResult Function() getAllTitle,
+  }) {
+    return getAllMessage(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? chat,
+    TResult? Function(String title)? getAllMessage,
+    TResult? Function(String title)? saveMessage,
+    TResult? Function()? getAllTitle,
+  }) {
+    return getAllMessage?.call(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? chat,
+    TResult Function(String title)? getAllMessage,
+    TResult Function(String title)? saveMessage,
+    TResult Function()? getAllTitle,
+    required TResult orElse(),
+  }) {
+    if (getAllMessage != null) {
+      return getAllMessage(title);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Chat value) chat,
+    required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
+    required TResult Function(_SaveMessage value) saveMessage,
+    required TResult Function(_GetAllTitle value) getAllTitle,
+  }) {
+    return getAllMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Chat value)? chat,
+    TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult? Function(_SaveMessage value)? saveMessage,
+    TResult? Function(_GetAllTitle value)? getAllTitle,
+  }) {
+    return getAllMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Chat value)? chat,
+    TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult Function(_SaveMessage value)? saveMessage,
+    TResult Function(_GetAllTitle value)? getAllTitle,
+    required TResult orElse(),
+  }) {
+    if (getAllMessage != null) {
+      return getAllMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAllMessageWithTitle implements ConversationEvent {
+  const factory _GetAllMessageWithTitle({required final String title}) =
+      _$_GetAllMessageWithTitle;
+
+  String get title;
+  @JsonKey(ignore: true)
+  _$$_GetAllMessageWithTitleCopyWith<_$_GetAllMessageWithTitle> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SaveMessageCopyWith<$Res> {
+  factory _$$_SaveMessageCopyWith(
+          _$_SaveMessage value, $Res Function(_$_SaveMessage) then) =
+      __$$_SaveMessageCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String title});
+}
+
+/// @nodoc
+class __$$_SaveMessageCopyWithImpl<$Res>
+    extends _$ConversationEventCopyWithImpl<$Res, _$_SaveMessage>
+    implements _$$_SaveMessageCopyWith<$Res> {
+  __$$_SaveMessageCopyWithImpl(
+      _$_SaveMessage _value, $Res Function(_$_SaveMessage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+  }) {
+    return _then(_$_SaveMessage(
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SaveMessage implements _SaveMessage {
+  const _$_SaveMessage({required this.title});
+
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'ConversationEvent.saveMessage(title: $title)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SaveMessage &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SaveMessageCopyWith<_$_SaveMessage> get copyWith =>
+      __$$_SaveMessageCopyWithImpl<_$_SaveMessage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) chat,
+    required TResult Function(String title) getAllMessage,
+    required TResult Function(String title) saveMessage,
+    required TResult Function() getAllTitle,
+  }) {
+    return saveMessage(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? chat,
+    TResult? Function(String title)? getAllMessage,
+    TResult? Function(String title)? saveMessage,
+    TResult? Function()? getAllTitle,
+  }) {
+    return saveMessage?.call(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? chat,
+    TResult Function(String title)? getAllMessage,
+    TResult Function(String title)? saveMessage,
+    TResult Function()? getAllTitle,
+    required TResult orElse(),
+  }) {
+    if (saveMessage != null) {
+      return saveMessage(title);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Chat value) chat,
+    required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
+    required TResult Function(_SaveMessage value) saveMessage,
+    required TResult Function(_GetAllTitle value) getAllTitle,
+  }) {
+    return saveMessage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Chat value)? chat,
+    TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult? Function(_SaveMessage value)? saveMessage,
+    TResult? Function(_GetAllTitle value)? getAllTitle,
+  }) {
+    return saveMessage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Chat value)? chat,
+    TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult Function(_SaveMessage value)? saveMessage,
+    TResult Function(_GetAllTitle value)? getAllTitle,
+    required TResult orElse(),
+  }) {
+    if (saveMessage != null) {
+      return saveMessage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SaveMessage implements ConversationEvent {
+  const factory _SaveMessage({required final String title}) = _$_SaveMessage;
+
+  String get title;
+  @JsonKey(ignore: true)
+  _$$_SaveMessageCopyWith<_$_SaveMessage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetAllTitleCopyWith<$Res> {
+  factory _$$_GetAllTitleCopyWith(
+          _$_GetAllTitle value, $Res Function(_$_GetAllTitle) then) =
+      __$$_GetAllTitleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_GetAllTitleCopyWithImpl<$Res>
+    extends _$ConversationEventCopyWithImpl<$Res, _$_GetAllTitle>
+    implements _$$_GetAllTitleCopyWith<$Res> {
+  __$$_GetAllTitleCopyWithImpl(
+      _$_GetAllTitle _value, $Res Function(_$_GetAllTitle) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_GetAllTitle implements _GetAllTitle {
+  const _$_GetAllTitle();
+
+  @override
+  String toString() {
+    return 'ConversationEvent.getAllTitle()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_GetAllTitle);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String message) chat,
+    required TResult Function(String title) getAllMessage,
+    required TResult Function(String title) saveMessage,
+    required TResult Function() getAllTitle,
+  }) {
+    return getAllTitle();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String message)? chat,
+    TResult? Function(String title)? getAllMessage,
+    TResult? Function(String title)? saveMessage,
+    TResult? Function()? getAllTitle,
+  }) {
+    return getAllTitle?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String message)? chat,
+    TResult Function(String title)? getAllMessage,
+    TResult Function(String title)? saveMessage,
+    TResult Function()? getAllTitle,
+    required TResult orElse(),
+  }) {
+    if (getAllTitle != null) {
+      return getAllTitle();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Chat value) chat,
+    required TResult Function(_GetAllMessageWithTitle value) getAllMessage,
+    required TResult Function(_SaveMessage value) saveMessage,
+    required TResult Function(_GetAllTitle value) getAllTitle,
+  }) {
+    return getAllTitle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Chat value)? chat,
+    TResult? Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult? Function(_SaveMessage value)? saveMessage,
+    TResult? Function(_GetAllTitle value)? getAllTitle,
+  }) {
+    return getAllTitle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Chat value)? chat,
+    TResult Function(_GetAllMessageWithTitle value)? getAllMessage,
+    TResult Function(_SaveMessage value)? saveMessage,
+    TResult Function(_GetAllTitle value)? getAllTitle,
+    required TResult orElse(),
+  }) {
+    if (getAllTitle != null) {
+      return getAllTitle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAllTitle implements ConversationEvent {
+  const factory _GetAllTitle() = _$_GetAllTitle;
 }
 
 /// @nodoc
@@ -225,6 +643,7 @@ mixin _$ConversationState {
     required TResult Function(ConversationData data) loading,
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -233,6 +652,7 @@ mixin _$ConversationState {
     TResult? Function(ConversationData data)? loading,
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -241,6 +661,7 @@ mixin _$ConversationState {
     TResult Function(ConversationData data)? loading,
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -250,6 +671,7 @@ mixin _$ConversationState {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -258,6 +680,7 @@ mixin _$ConversationState {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -266,6 +689,7 @@ mixin _$ConversationState {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -390,6 +814,7 @@ class _$_Initial implements _Initial {
     required TResult Function(ConversationData data) loading,
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
   }) {
     return initial(data);
   }
@@ -401,6 +826,7 @@ class _$_Initial implements _Initial {
     TResult? Function(ConversationData data)? loading,
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
   }) {
     return initial?.call(data);
   }
@@ -412,6 +838,7 @@ class _$_Initial implements _Initial {
     TResult Function(ConversationData data)? loading,
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -427,6 +854,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
   }) {
     return initial(this);
   }
@@ -438,6 +866,7 @@ class _$_Initial implements _Initial {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
   }) {
     return initial?.call(this);
   }
@@ -449,6 +878,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -541,6 +971,7 @@ class _$_Loading implements _Loading {
     required TResult Function(ConversationData data) loading,
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
   }) {
     return loading(data);
   }
@@ -552,6 +983,7 @@ class _$_Loading implements _Loading {
     TResult? Function(ConversationData data)? loading,
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
   }) {
     return loading?.call(data);
   }
@@ -563,6 +995,7 @@ class _$_Loading implements _Loading {
     TResult Function(ConversationData data)? loading,
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -578,6 +1011,7 @@ class _$_Loading implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
   }) {
     return loading(this);
   }
@@ -589,6 +1023,7 @@ class _$_Loading implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
   }) {
     return loading?.call(this);
   }
@@ -600,6 +1035,7 @@ class _$_Loading implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -692,6 +1128,7 @@ class _$_Success implements _Success {
     required TResult Function(ConversationData data) loading,
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
   }) {
     return success(data);
   }
@@ -703,6 +1140,7 @@ class _$_Success implements _Success {
     TResult? Function(ConversationData data)? loading,
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
   }) {
     return success?.call(data);
   }
@@ -714,6 +1152,7 @@ class _$_Success implements _Success {
     TResult Function(ConversationData data)? loading,
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -729,6 +1168,7 @@ class _$_Success implements _Success {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
   }) {
     return success(this);
   }
@@ -740,6 +1180,7 @@ class _$_Success implements _Success {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
   }) {
     return success?.call(this);
   }
@@ -751,6 +1192,7 @@ class _$_Success implements _Success {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -843,6 +1285,7 @@ class _$_Failure implements _Failure {
     required TResult Function(ConversationData data) loading,
     required TResult Function(ConversationData data) success,
     required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
   }) {
     return failure(data);
   }
@@ -854,6 +1297,7 @@ class _$_Failure implements _Failure {
     TResult? Function(ConversationData data)? loading,
     TResult? Function(ConversationData data)? success,
     TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
   }) {
     return failure?.call(data);
   }
@@ -865,6 +1309,7 @@ class _$_Failure implements _Failure {
     TResult Function(ConversationData data)? loading,
     TResult Function(ConversationData data)? success,
     TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -880,6 +1325,7 @@ class _$_Failure implements _Failure {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Success value) success,
     required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
   }) {
     return failure(this);
   }
@@ -891,6 +1337,7 @@ class _$_Failure implements _Failure {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Success value)? success,
     TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
   }) {
     return failure?.call(this);
   }
@@ -902,6 +1349,7 @@ class _$_Failure implements _Failure {
     TResult Function(_Loading value)? loading,
     TResult Function(_Success value)? success,
     TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -919,5 +1367,165 @@ abstract class _Failure implements ConversationState {
   @override
   @JsonKey(ignore: true)
   _$$_FailureCopyWith<_$_Failure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_GetAllMessageSuccessCopyWith<$Res>
+    implements $ConversationStateCopyWith<$Res> {
+  factory _$$_GetAllMessageSuccessCopyWith(_$_GetAllMessageSuccess value,
+          $Res Function(_$_GetAllMessageSuccess) then) =
+      __$$_GetAllMessageSuccessCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ConversationData data});
+
+  @override
+  $ConversationDataCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$_GetAllMessageSuccessCopyWithImpl<$Res>
+    extends _$ConversationStateCopyWithImpl<$Res, _$_GetAllMessageSuccess>
+    implements _$$_GetAllMessageSuccessCopyWith<$Res> {
+  __$$_GetAllMessageSuccessCopyWithImpl(_$_GetAllMessageSuccess _value,
+      $Res Function(_$_GetAllMessageSuccess) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$_GetAllMessageSuccess(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ConversationData,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_GetAllMessageSuccess implements _GetAllMessageSuccess {
+  const _$_GetAllMessageSuccess({required this.data});
+
+  @override
+  final ConversationData data;
+
+  @override
+  String toString() {
+    return 'ConversationState.getAllMessageSuccess(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_GetAllMessageSuccess &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_GetAllMessageSuccessCopyWith<_$_GetAllMessageSuccess> get copyWith =>
+      __$$_GetAllMessageSuccessCopyWithImpl<_$_GetAllMessageSuccess>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ConversationData data) initial,
+    required TResult Function(ConversationData data) loading,
+    required TResult Function(ConversationData data) success,
+    required TResult Function(ConversationData data) failure,
+    required TResult Function(ConversationData data) getAllMessageSuccess,
+  }) {
+    return getAllMessageSuccess(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ConversationData data)? initial,
+    TResult? Function(ConversationData data)? loading,
+    TResult? Function(ConversationData data)? success,
+    TResult? Function(ConversationData data)? failure,
+    TResult? Function(ConversationData data)? getAllMessageSuccess,
+  }) {
+    return getAllMessageSuccess?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ConversationData data)? initial,
+    TResult Function(ConversationData data)? loading,
+    TResult Function(ConversationData data)? success,
+    TResult Function(ConversationData data)? failure,
+    TResult Function(ConversationData data)? getAllMessageSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllMessageSuccess != null) {
+      return getAllMessageSuccess(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Success value) success,
+    required TResult Function(_Failure value) failure,
+    required TResult Function(_GetAllMessageSuccess value) getAllMessageSuccess,
+  }) {
+    return getAllMessageSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Success value)? success,
+    TResult? Function(_Failure value)? failure,
+    TResult? Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+  }) {
+    return getAllMessageSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Success value)? success,
+    TResult Function(_Failure value)? failure,
+    TResult Function(_GetAllMessageSuccess value)? getAllMessageSuccess,
+    required TResult orElse(),
+  }) {
+    if (getAllMessageSuccess != null) {
+      return getAllMessageSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetAllMessageSuccess implements ConversationState {
+  const factory _GetAllMessageSuccess({required final ConversationData data}) =
+      _$_GetAllMessageSuccess;
+
+  @override
+  ConversationData get data;
+  @override
+  @JsonKey(ignore: true)
+  _$$_GetAllMessageSuccessCopyWith<_$_GetAllMessageSuccess> get copyWith =>
       throw _privateConstructorUsedError;
 }

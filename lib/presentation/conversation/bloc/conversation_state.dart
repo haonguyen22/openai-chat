@@ -17,4 +17,9 @@ class ConversationState with _$ConversationState {
   const factory ConversationState.failure({
     required ConversationData data,
   }) = _Failure;
+
+  const factory ConversationState.getAllMessageSuccess({
+    required ConversationData data,
+  }) = _GetAllMessageSuccess;
+  
 }

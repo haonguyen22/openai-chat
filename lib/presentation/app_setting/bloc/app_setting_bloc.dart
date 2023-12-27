@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:openai_chat/data/models/chat_response/message.dart';
 import 'package:openai_chat/domain/usecase/shared_preferences_usecase.dart';
 import 'package:meta/meta.dart';
 
@@ -57,5 +58,13 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
     if (isSave) {
       emit(SaveSuccess(state.langCode, state.appearance, state.apiKey));
     }
+  }
+
+  FutureOr<void> mapSaveConversationEvent(
+      SaveConversationEvent event, Emitter<AppSettingState> emit) async {
+    // final isSave = await hiveInterface.;
+    // if (isSave) {
+    //   emit(SaveSuccess(state.langCode, state.appearance, state.apiKey));
+    // }
   }
 }

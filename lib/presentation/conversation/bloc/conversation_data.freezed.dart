@@ -19,6 +19,7 @@ mixin _$ConversationData {
   List<Message>? get messages => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   bool get isTyping => throw _privateConstructorUsedError;
+  List<String> get choices => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ConversationDataCopyWith<ConversationData> get copyWith =>
@@ -31,7 +32,11 @@ abstract class $ConversationDataCopyWith<$Res> {
           ConversationData value, $Res Function(ConversationData) then) =
       _$ConversationDataCopyWithImpl<$Res, ConversationData>;
   @useResult
-  $Res call({List<Message>? messages, String? title, bool isTyping});
+  $Res call(
+      {List<Message>? messages,
+      String? title,
+      bool isTyping,
+      List<String> choices});
 }
 
 /// @nodoc
@@ -50,6 +55,7 @@ class _$ConversationDataCopyWithImpl<$Res, $Val extends ConversationData>
     Object? messages = freezed,
     Object? title = freezed,
     Object? isTyping = null,
+    Object? choices = null,
   }) {
     return _then(_value.copyWith(
       messages: freezed == messages
@@ -64,6 +70,10 @@ class _$ConversationDataCopyWithImpl<$Res, $Val extends ConversationData>
           ? _value.isTyping
           : isTyping // ignore: cast_nullable_to_non_nullable
               as bool,
+      choices: null == choices
+          ? _value.choices
+          : choices // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ) as $Val);
   }
 }
@@ -76,7 +86,11 @@ abstract class _$$_ConversationDataCopyWith<$Res>
       __$$_ConversationDataCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Message>? messages, String? title, bool isTyping});
+  $Res call(
+      {List<Message>? messages,
+      String? title,
+      bool isTyping,
+      List<String> choices});
 }
 
 /// @nodoc
@@ -93,6 +107,7 @@ class __$$_ConversationDataCopyWithImpl<$Res>
     Object? messages = freezed,
     Object? title = freezed,
     Object? isTyping = null,
+    Object? choices = null,
   }) {
     return _then(_$_ConversationData(
       messages: freezed == messages
@@ -107,6 +122,10 @@ class __$$_ConversationDataCopyWithImpl<$Res>
           ? _value.isTyping
           : isTyping // ignore: cast_nullable_to_non_nullable
               as bool,
+      choices: null == choices
+          ? _value._choices
+          : choices // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -115,8 +134,12 @@ class __$$_ConversationDataCopyWithImpl<$Res>
 
 class _$_ConversationData implements _ConversationData {
   const _$_ConversationData(
-      {final List<Message>? messages, this.title, this.isTyping = false})
-      : _messages = messages;
+      {final List<Message>? messages,
+      this.title,
+      this.isTyping = false,
+      final List<String> choices = const []})
+      : _messages = messages,
+        _choices = choices;
 
   final List<Message>? _messages;
   @override
@@ -133,10 +156,18 @@ class _$_ConversationData implements _ConversationData {
   @override
   @JsonKey()
   final bool isTyping;
+  final List<String> _choices;
+  @override
+  @JsonKey()
+  List<String> get choices {
+    if (_choices is EqualUnmodifiableListView) return _choices;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_choices);
+  }
 
   @override
   String toString() {
-    return 'ConversationData(messages: $messages, title: $title, isTyping: $isTyping)';
+    return 'ConversationData(messages: $messages, title: $title, isTyping: $isTyping, choices: $choices)';
   }
 
   @override
@@ -147,12 +178,17 @@ class _$_ConversationData implements _ConversationData {
             const DeepCollectionEquality().equals(other._messages, _messages) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.isTyping, isTyping) ||
-                other.isTyping == isTyping));
+                other.isTyping == isTyping) &&
+            const DeepCollectionEquality().equals(other._choices, _choices));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_messages), title, isTyping);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_messages),
+      title,
+      isTyping,
+      const DeepCollectionEquality().hash(_choices));
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +201,8 @@ abstract class _ConversationData implements ConversationData {
   const factory _ConversationData(
       {final List<Message>? messages,
       final String? title,
-      final bool isTyping}) = _$_ConversationData;
+      final bool isTyping,
+      final List<String> choices}) = _$_ConversationData;
 
   @override
   List<Message>? get messages;
@@ -173,6 +210,8 @@ abstract class _ConversationData implements ConversationData {
   String? get title;
   @override
   bool get isTyping;
+  @override
+  List<String> get choices;
   @override
   @JsonKey(ignore: true)
   _$$_ConversationDataCopyWith<_$_ConversationData> get copyWith =>

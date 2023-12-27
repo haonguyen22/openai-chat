@@ -5,13 +5,15 @@ import 'package:openai_chat/data/models/chat_response/message.dart';
 
 @module
 abstract class StoreModules {
-  // @Singleton()
-  // Future<HiveInterface> init() async {
-  //   await Hive.initFlutter();
-  //   Hive.registerAdapter(MessageAdapter());
+  @Singleton()
+  Future<HiveInterface> init() async {
+    await Hive.initFlutter();
+    Hive.registerAdapter(MessageAdapter());
 
-  //   await Hive.openBox(HiveConstant.messageBox);
+    await Hive.openBox<List<Message>>(HiveConstant.messageBox);
 
-  //   return Hive;
-  // }
+    return Hive;
+  }
 }
+
+

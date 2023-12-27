@@ -12,3 +12,9 @@ class SaveApiKeyEvent extends AppSettingEvent {
 
   SaveApiKeyEvent(this.apiKey);
 }
+
+class SaveConversationEvent extends AppSettingEvent {
+  final List<Message> messages;
+
+  SaveConversationEvent(this.messages);
+}
